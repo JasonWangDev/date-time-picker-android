@@ -1,3 +1,11 @@
 <resources>
 
+    <string name="DateTimeDialogFragment.Title.SelectDateTime">Select DateTime</string>
+    <string name="DateTimeDialogFragment.Title.SelectDate">Select Date</string>
+    <string name="DateTimeDialogFragment.Title.SelectTime">Select Time</string>
+
+    <string name="DateTimeDialogFragment.Button.Today">Today</string>
+    <string name="DateTimeDialogFragment.Button.Cancel">Cancel</string>
+    <string name="DateTimeDialogFragment.Button.Ok">Ok</string>
+
 </resources>

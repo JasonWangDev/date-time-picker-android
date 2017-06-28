@@ -7,4 +7,16 @@
     <!-- 文字內間距 -->
     <dimen name="DateTimePickerDialogFragment.Title.Padding">15dp</dimen>
 
+    <!-- 日期選取器 -->
+    <!-- 間距 -->
+    <dimen name="DateTimePickerDialogFragment.DatePicker.Margin">30dp</dimen>
+
+    <!-- 時間選取器 -->
+    <!-- 間距 -->
+    <dimen name="DateTimePickerDialogFragment.TimePicker.Margin">30dp</dimen>
+
+    <!-- 按鈕 -->
+    <!-- 內間距 -->
+    <dimen name="DateTimePickerDialogFragment.Button.Padding">20dp</dimen>
+
 </resources>

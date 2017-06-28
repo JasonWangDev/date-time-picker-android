@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="DateTimeDialogFragment.Title.SelectDateTime">选择日期时间</string>
+    <string name="DateTimeDialogFragment.Title.SelectDate">选择日期</string>
+    <string name="DateTimeDialogFragment.Title.SelectTime">选择时间</string>
+
+    <string name="DateTimeDialogFragment.Button.Today">今日</string>
+    <string name="DateTimeDialogFragment.Button.Cancel">取消</string>
+    <string name="DateTimeDialogFragment.Button.Ok">确认</string>
+
+</resources>

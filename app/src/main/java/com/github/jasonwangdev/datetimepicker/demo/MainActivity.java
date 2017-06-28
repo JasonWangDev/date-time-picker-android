@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DateTimePickerDialogFragment.getInstance().show(getSupportFragmentManager(), "SEGSEG");
+        DateTimePickerDialogFragment.getDateInstance().show(getSupportFragmentManager(), "SEGSEG");
     }
 }

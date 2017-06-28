@@ -3,6 +3,7 @@ package com.github.jasonwangdev.datetimepicker;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -11,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.lang.reflect.Field;
@@ -23,8 +26,34 @@ import java.lang.reflect.Field;
 
 public class DateTimePickerDialogFragment extends DialogFragment {
 
-    public static DateTimePickerDialogFragment getInstance() {
+    private static final int MODE_DATE_TIME = 0x01;
+    private static final int MODE_DATE = 0x02;
+    private static final int MODE_TIME = 0x03;
+
+    private static final String KEY_MODE = "Mode";
+
+    private Calendar calendarDate;
+
+    private DatePicker datePicker;
+    private TimePicker timePicker;
+
+
+    public static DateTimePickerDialogFragment getDateTimeInstance() {
+        return getInstance(MODE_DATE_TIME);
+    }
+
+    public static DateTimePickerDialogFragment getDateInstance() {
+        return getInstance(MODE_DATE);
+    }
+
+    public static DateTimePickerDialogFragment getTimeInstance() {
+        return getInstance(MODE_TIME);
+    }
+
+
+    private static DateTimePickerDialogFragment getInstance(int mode) {
         Bundle bundle = new Bundle();
+        bundle.putInt(KEY_MODE, mode);
 
         DateTimePickerDialogFragment dialog = new DateTimePickerDialogFragment();
         dialog.setArguments(bundle);
@@ -37,12 +66,50 @@ public class DateTimePickerDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setDialogNoTitle();
-        View view = inflater.inflate(R.layout.dialogfragment_datetimepicker, container, false);
 
-        setDatePickerDividerColor((DatePicker) view.findViewById(R.id.datePicker));
-        setTimePickerDividerColor((TimePicker) view.findViewById(R.id.timePicker));
+        View view = loadLayout(inflater, container);
+
+        datePicker = (DatePicker) view.findViewById(R.id.datePicker);
+        timePicker = (TimePicker) view.findViewById(R.id.timePicker);
+
+        setDatePickerDividerColor(datePicker);
+        setTimePickerDividerColor(timePicker);
+
+        // 文字設定
+        switch (getArguments().getInt(KEY_MODE))
+        {
+            case MODE_DATE_TIME:
+                ((TextView) view.findViewById(R.id.tv_title)).setText(getResources().getString(R.string.DateTimeDialogFragment_Title_SelectDateTime));
+                break;
+
+            case MODE_DATE:
+                ((TextView) view.findViewById(R.id.tv_title)).setText(getResources().getString(R.string.DateTimeDialogFragment_Title_SelectDate));
+                break;
+
+            case MODE_TIME:
+                ((TextView) view.findViewById(R.id.tv_title)).setText(getResources().getString(R.string.DateTimeDialogFragment_Title_SelectTime));
+                break;
+        }
+
+        ((Button) view.findViewById(R.id.btn_today)).setText(getResources().getString(R.string.DateTimeDialogFragment_Button_Today));
+        ((Button) view.findViewById(R.id.btn_cancel)).setText(getResources().getString(R.string.DateTimeDialogFragment_Button_Cancel));
+        ((Button) view.findViewById(R.id.btn_ok)).setText(getResources().getString(R.string.DateTimeDialogFragment_Button_Ok));
 
         return view;
+    }
+
+    private View loadLayout(LayoutInflater inflater, ViewGroup container) {
+        switch (getArguments().getInt(KEY_MODE))
+        {
+            case MODE_DATE_TIME:
+                return inflater.inflate(R.layout.dialogfragment_datetimepicker, container, false);
+            case MODE_DATE:
+                return inflater.inflate(R.layout.dialogfragment_datepicker, container, false);
+            case MODE_TIME:
+                return inflater.inflate(R.layout.dialogfragment_timepicker, container, false);
+            default:
+                return null;
+        }
     }
 
     @Override
@@ -73,7 +140,6 @@ public class DateTimePickerDialogFragment extends DialogFragment {
                 {
                     params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
                     params.height = ViewGroup.LayoutParams.MATCH_PARENT;
-
                 }
                 else
                 {
@@ -86,6 +152,9 @@ public class DateTimePickerDialogFragment extends DialogFragment {
     }
 
     private void setTimePickerDividerColor(TimePicker picker) {
+        if (null == picker)
+            return;
+
         Resources system = Resources.getSystem();
         int dayId = system.getIdentifier("hour", "id", "android");
         int monthId = system.getIdentifier("minute", "id", "android");
@@ -95,12 +164,15 @@ public class DateTimePickerDialogFragment extends DialogFragment {
         NumberPicker monthPicker = (NumberPicker) picker.findViewById(monthId);
         NumberPicker yearPicker = (NumberPicker) picker.findViewById(yearId);
 
-//        setDividerColor(dayPicker);
-//        setDividerColor(monthPicker);
-//        setDividerColor(yearPicker);
+        setDividerColor(dayPicker);
+        setDividerColor(monthPicker);
+        setDividerColor(yearPicker);
     }
 
     private void setDatePickerDividerColor(DatePicker picker) {
+        if (null == picker)
+            return;
+
         Resources system = Resources.getSystem();
         int dayId = system.getIdentifier("day", "id", "android");
         int monthId = system.getIdentifier("month", "id", "android");
@@ -110,12 +182,12 @@ public class DateTimePickerDialogFragment extends DialogFragment {
         NumberPicker monthPicker = (NumberPicker) picker.findViewById(monthId);
         NumberPicker yearPicker = (NumberPicker) picker.findViewById(yearId);
 
-//        setDividerColor(dayPicker);
-//        setDividerColor(monthPicker);
-//        setDividerColor(yearPicker);
+        setDividerColor(dayPicker);
+        setDividerColor(monthPicker);
+        setDividerColor(yearPicker);
     }
 
-    private void setDividerColor(NumberPicker picker, int colorRes) {
+    private void setDividerColor(NumberPicker picker) {
         if (picker == null)
             return;
 
@@ -126,7 +198,7 @@ public class DateTimePickerDialogFragment extends DialogFragment {
             {
                 Field dividerField = picker.getClass().getDeclaredField("mSelectionDivider");
                 dividerField.setAccessible(true);
-                ColorDrawable colorDrawable = new ColorDrawable(ContextCompat.getColor(getActivity(), colorRes));
+                ColorDrawable colorDrawable = new ColorDrawable(ContextCompat.getColor(getActivity(), R.color.DateTimePickerDialogFragment_Picker_DividerColor));
                 dividerField.set(picker, colorDrawable);
                 picker.invalidate();
             }

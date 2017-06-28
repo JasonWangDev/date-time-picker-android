@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/DateTimePickerDialogFragment">
-
-    <DatePicker
-        android:id="@+id/datePicker"
-        style="@style/DateTimePickerDialogFragment.DatePicker"
-        android:datePickerMode="spinner"
-        app:layout_constraintBottom_toTopOf="@+id/timePicker"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintVertical_chainStyle="packed" />
 
     <TimePicker
         android:id="@+id/timePicker"
@@ -21,7 +10,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_today"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/datePicker" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
     <TextView
         android:id="@+id/tv_title"
