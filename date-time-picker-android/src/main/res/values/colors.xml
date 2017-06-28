@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 背景顏色 -->
+    <color name="DateTimePickerDialogFragment.BackgroundColor">#F3F9ED</color>
+
+    <!-- 標題文字 -->
+    <!-- 文字顏色 -->
+    <color name="DateTimePickerDialogFragment.Title.TextColor">#FFF</color>
+    <!-- 背景顏色 -->
+    <color name="DateTimePickerDialogFragment.Title.BackgroundColor">#8AC64A</color>
+
+    <!-- 選取器 -->
+    <!-- 分割線顏色 -->
+    <color name="DateTimePickerDialogFragment.Picker.DividerColor">@color/DateTimePickerDialogFragment.Title.BackgroundColor</color>
+
+    <!-- 按鈕 -->
+    <!-- 文字顏色 -->
+    <color name="DateTimePickerDialogFragment.Button.TextColor">@color/DateTimePickerDialogFragment.Title.BackgroundColor</color>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 標題文字 -->
+    <!-- 文字大小 -->
+    <dimen name="DateTimePickerDialogFragment.Title.TextSize">18sp</dimen>
+    <!-- 文字內間距 -->
+    <dimen name="DateTimePickerDialogFragment.Title.Padding">15dp</dimen>
+
+</resources>
