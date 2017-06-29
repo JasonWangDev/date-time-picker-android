@@ -1,9 +1,9 @@
 package com.github.jasonwangdev.datetimepicker.demo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.github.jasonwangdev.datetimepicker.DateTimePickerDialogFragment;
+import com.github.jasonwangdev.datetimepicker.DatePickerDialogFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DateTimePickerDialogFragment.getDateInstance().show(getSupportFragmentManager(), "SEGSEG");
+        DatePickerDialogFragment dialogFragment = DatePickerDialogFragment.getInstance();
+        dialogFragment.show(getSupportFragmentManager(), "SEGEG");
     }
 }

@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- DatePickerDialogFragment -->
+    <!-- 背景顏色 -->
+    <color name="DatePickerDialogFragment.BackgroundColor">#F3F9ED</color>
+    <!-- 標題 -->
+    <!-- 文字顏色 -->
+    <color name="DatePickerDialogFragment.Title.TextColor">#FFF</color>
+    <!-- 背景顏色 -->
+    <color name="DatePickerDialogFragment.Title.BackgroundColor">#8AC64A</color>
+    <!-- 按鈕 -->
+    <!-- 文字顏色 -->
+    <color name="DatePickerDialogFragment.Button.TextColor">@color/DatePickerDialogFragment.Title.BackgroundColor</color>
+
+
+
+
+
+
+
     <!-- 背景顏色 -->
     <color name="DateTimePickerDialogFragment.BackgroundColor">#F3F9ED</color>
 

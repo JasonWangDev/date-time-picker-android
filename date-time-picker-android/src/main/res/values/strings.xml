@@ -1,11 +1,12 @@
 <resources>
 
-    <string name="DateTimeDialogFragment.Title.SelectDateTime">Select DateTime</string>
-    <string name="DateTimeDialogFragment.Title.SelectDate">Select Date</string>
-    <string name="DateTimeDialogFragment.Title.SelectTime">Select Time</string>
+    <string name="PickerDialogFragment.Title.SelectDateTime">Select DateTime</string>
+    <string name="PickerDialogFragment.Title.SelectDate">Select Date</string>
+    <string name="PickerDialogFragment.Title.SelectTime">Select Time</string>
 
-    <string name="DateTimeDialogFragment.Button.Today">Today</string>
-    <string name="DateTimeDialogFragment.Button.Cancel">Cancel</string>
-    <string name="DateTimeDialogFragment.Button.Ok">Ok</string>
+    <string name="PickerDialogFragment.Button.Today">Today</string>
+    <string name="PickerDialogFragment.Button.Now">Now</string>
+    <string name="PickerDialogFragment.Button.Clear">Clear</string>
+    <string name="PickerDialogFragment.Button.Ok">Ok</string>
 
 </resources>
