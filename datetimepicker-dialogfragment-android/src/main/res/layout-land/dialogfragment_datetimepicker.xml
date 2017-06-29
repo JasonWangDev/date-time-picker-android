@@ -26,6 +26,7 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/DateTimePickerDialogFragment.Title"
+        android:text="@string/PickerDialogFragment.Title.SelectDateTime"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,18 +34,21 @@
     <Button
         android:id="@+id/btn_today"
         style="@style/DateTimePickerDialogFragment.Button"
+        android:text="@string/PickerDialogFragment.Button.Today"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/btn_clear"
         style="@style/DateTimePickerDialogFragment.Button"
+        android:text="@string/PickerDialogFragment.Button.Clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/btn_ok" />
 
     <Button
         android:id="@+id/btn_ok"
         style="@style/DateTimePickerDialogFragment.Button"
+        android:text="@string/PickerDialogFragment.Button.Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

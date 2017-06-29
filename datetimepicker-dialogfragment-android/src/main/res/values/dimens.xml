@@ -2,7 +2,7 @@
 <resources>
 
     <!-- PickerDialogFragment -->
-    <!-- 日期選取器 -->
+    <!-- 選取器 -->
     <!-- 左右外間距 -->
     <dimen name="PickerDialogFragment.Picker.Margin">30dp</dimen>
     <!-- 標題 -->
@@ -13,31 +13,5 @@
     <!-- 按鈕 -->
     <!-- 左右內間距 -->
     <dimen name="PickerDialogFragment.Button.Padding">20dp</dimen>
-
-
-
-
-
-
-
-
-
-    <!-- 標題文字 -->
-    <!-- 文字大小 -->
-    <dimen name="DateTimePickerDialogFragment.Title.TextSize">18sp</dimen>
-    <!-- 文字內間距 -->
-    <dimen name="DateTimePickerDialogFragment.Title.Padding">15dp</dimen>
-
-    <!-- 日期選取器 -->
-    <!-- 間距 -->
-    <dimen name="DateTimePickerDialogFragment.DatePicker.Margin">30dp</dimen>
-
-    <!-- 時間選取器 -->
-    <!-- 間距 -->
-    <dimen name="DateTimePickerDialogFragment.TimePicker.Margin">30dp</dimen>
-
-    <!-- 按鈕 -->
-    <!-- 內間距 -->
-    <dimen name="DateTimePickerDialogFragment.Button.Padding">20dp</dimen>
 
 </resources>

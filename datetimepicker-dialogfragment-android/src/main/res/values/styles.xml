@@ -61,73 +61,17 @@
     <!-- 按鈕樣式 -->
     <style name="TimePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- DialogFragment 樣式 -->
-    <style name="DateTimePickerDialogFragment">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/DateTimePickerDialogFragment.BackgroundColor</item>
+    <!-- DateTimePickerDialogFragment -->
+    <!-- DateTimePickerDialogFragment 樣式 -->
+    <style name="DateTimePickerDialogFragment" parent="PickerDialogFragment" />
+    <!-- 標題樣式 -->
+    <style name="DateTimePickerDialogFragment.Title" parent="PickerDialogFragment.Title" />
+    <!-- 日期選取器樣式-->
+    <style name="DateTimePickerDialogFragment.DatePicker" parent="PickerDialogFragment.Picker">
     </style>
-
-    <!-- 標題文字樣式 -->
-    <style name="DateTimePickerDialogFragment.Title">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/DateTimePickerDialogFragment.Title.BackgroundColor</item>
-        <item name="android:padding">@dimen/DateTimePickerDialogFragment.Title.Padding</item>
-        <item name="android:textColor">@color/DateTimePickerDialogFragment.Title.TextColor</item>
-        <item name="android:textSize">@dimen/DateTimePickerDialogFragment.Title.TextSize</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <!-- 選取器樣式 -->
-    <style name="DateTimePickerDialogFragment.Picker">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <!-- 日期選取器樣式 -->
-    <style name="DateTimePickerDialogFragment.DatePicker" parent="DateTimePickerDialogFragment.Picker">
-        <item name="android:calendarViewShown">false</item>
-    </style>
-
-    <!-- 時間選取器樣式 -->
-    <style name="DateTimePickerDialogFragment.TimePicker" parent="DateTimePickerDialogFragment.Picker" />
-
+    <!-- 時間選取器樣式-->
+    <style name="DateTimePickerDialogFragment.TimePicker" parent="PickerDialogFragment.Picker" />
     <!-- 按鈕樣式 -->
-    <style name="DateTimePickerDialogFragment.Button">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:minWidth">0dp</item>
-        <item name="android:paddingLeft">@dimen/DateTimePickerDialogFragment.Button.Padding</item>
-        <item name="android:paddingRight">@dimen/DateTimePickerDialogFragment.Button.Padding</item>
-        <item name="android:paddingStart">@dimen/DateTimePickerDialogFragment.Button.Padding</item>
-        <item name="android:paddingEnd">@dimen/DateTimePickerDialogFragment.Button.Padding</item>
-        <item name="android:background">@null</item>
-        <item name="android:textColor">@color/DateTimePickerDialogFragment.Button.TextColor</item>
-    </style>
+    <style name="DateTimePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
 
 </resources>

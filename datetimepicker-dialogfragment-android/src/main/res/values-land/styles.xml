@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 日期選取器樣式 -->
-    <style name="DateTimePickerDialogFragment.DatePicker" parent="DateTimePickerDialogFragment.Picker">
-        <item name="android:calendarViewShown">false</item>
-        <item name="android:layout_marginLeft">@dimen/DateTimePickerDialogFragment.DatePicker.Margin</item>
-        <item name="android:layout_marginStart">@dimen/DateTimePickerDialogFragment.DatePicker.Margin</item>
+    <!-- DateTimePickerDialogFragment -->
+    <!-- 日期選取器樣式-->
+    <style name="DateTimePickerDialogFragment.DatePicker" parent="PickerDialogFragment.Picker">
+        <item name="android:layout_marginLeft">@dimen/PickerDialogFragment.Picker.Margin</item>
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_marginStart">@dimen/PickerDialogFragment.Picker.Margin</item>
+        <item name="android:layout_marginEnd">0dp</item>
     </style>
-
-    <!-- 時間選取器樣式 -->
-    <style name="DateTimePickerDialogFragment.TimePicker" parent="DateTimePickerDialogFragment.Picker">
-        <item name="android:layout_marginRight">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
-        <item name="android:layout_marginEnd">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
+    <!-- 時間選取器樣式-->
+    <style name="DateTimePickerDialogFragment.TimePicker" parent="PickerDialogFragment.Picker">
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">@dimen/PickerDialogFragment.Picker.Margin</item>
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginEnd">@dimen/PickerDialogFragment.Picker.Margin</item>
     </style>
 
 </resources>
