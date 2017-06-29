@@ -35,6 +35,10 @@ public abstract class SuperDialogFragment extends DialogFragment {
     protected static final String KEY_HOUR = "Hour";
     protected static final String KEY_MINUTE = "Minute";
 
+    protected OnDateTimePickerDialogFragmentClickListener listener;
+
+    protected Calendar calendar;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +58,11 @@ public abstract class SuperDialogFragment extends DialogFragment {
         setDialogSize();
 
         super.onResume();
+    }
+
+
+    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
+        this.listener = listener;
     }
 
 

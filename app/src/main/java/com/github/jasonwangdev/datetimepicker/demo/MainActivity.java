@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DatePickerDialogFragment dialogFragment = DatePickerDialogFragment.getInstance(Calendar.getInstance());
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.YEAR, 10);
+        DatePickerDialogFragment dialogFragment = DatePickerDialogFragment.getInstance(calendar);
         dialogFragment.show(getSupportFragmentManager(), "SEGEG");
     }
 }

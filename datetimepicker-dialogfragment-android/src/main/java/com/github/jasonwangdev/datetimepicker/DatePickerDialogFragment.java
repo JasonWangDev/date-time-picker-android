@@ -16,10 +16,6 @@ import java.util.Calendar;
 public class DatePickerDialogFragment extends SuperDialogFragment implements DatePicker.OnDateChangedListener,
                                                                              View.OnClickListener {
 
-    private OnDateTimePickerDialogFragmentClickListener listener;
-
-    private Calendar calendar;
-
     private DatePicker datePicker;
 
 
@@ -81,17 +77,16 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
         {
             if (null != listener)
                 listener.onDateTimeClear();
+
+            dismiss();
         }
         else if (viewId == R.id.btn_ok)
         {
             if (null != listener)
                 listener.onDateTimeSet(calendar);
+
+            dismiss();
         }
-    }
-
-
-    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
-        this.listener = listener;
     }
 
 
