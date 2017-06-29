@@ -1,45 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- DatePickerDialogFragment -->
-    <!-- DatePickerDialogFragment 樣式 -->
-    <style name="DatePickerDialogFragment">
+    <!-- PickerDialogFragment -->
+    <!-- PickerDialogFragment 樣式 -->
+    <style name="PickerDialogFragment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/DatePickerDialogFragment.BackgroundColor</item>
+        <item name="android:background">@color/PickerDialogFragment.BackgroundColor</item>
     </style>
     <!-- 標題樣式 -->
-    <style name="DatePickerDialogFragment.Title">
+    <style name="PickerDialogFragment.Title">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/DatePickerDialogFragment.Title.BackgroundColor</item>
-        <item name="android:padding">@dimen/DatePickerDialogFragment.Title.Padding</item>
-        <item name="android:textColor">@color/DatePickerDialogFragment.Title.TextColor</item>
-        <item name="android:textSize">@dimen/DatePickerDialogFragment.Title.TextSize</item>
+        <item name="android:background">@color/PickerDialogFragment.Title.BackgroundColor</item>
+        <item name="android:padding">@dimen/PickerDialogFragment.Title.Padding</item>
+        <item name="android:textColor">@color/PickerDialogFragment.Title.TextColor</item>
+        <item name="android:textSize">@dimen/PickerDialogFragment.Title.TextSize</item>
         <item name="android:textStyle">bold</item>
     </style>
-    <!-- 日期選取器樣式-->
-    <style name="DatePickerDialogFragment.DatePicker">
+    <!-- 選取器樣式-->
+    <style name="PickerDialogFragment.Picker">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginLeft">@dimen/DatePickerDialogFragment.DatePicker.Margin</item>
-        <item name="android:layout_marginRight">@dimen/DatePickerDialogFragment.DatePicker.Margin</item>
-        <item name="android:layout_marginStart">@dimen/DatePickerDialogFragment.DatePicker.Margin</item>
-        <item name="android:layout_marginEnd">@dimen/DatePickerDialogFragment.DatePicker.Margin</item>
+        <item name="android:layout_marginLeft">@dimen/PickerDialogFragment.Picker.Margin</item>
+        <item name="android:layout_marginRight">@dimen/PickerDialogFragment.Picker.Margin</item>
+        <item name="android:layout_marginStart">@dimen/PickerDialogFragment.Picker.Margin</item>
+        <item name="android:layout_marginEnd">@dimen/PickerDialogFragment.Picker.Margin</item>
         <item name="android:calendarViewShown">false</item>
     </style>
     <!-- 按鈕樣式 -->
-    <style name="DatePickerDialogFragment.Button">
+    <style name="PickerDialogFragment.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:background">@null</item>
-        <item name="android:paddingLeft">@dimen/DatePickerDialogFragment.Button.Padding</item>
-        <item name="android:paddingRight">@dimen/DatePickerDialogFragment.Button.Padding</item>
-        <item name="android:paddingStart">@dimen/DatePickerDialogFragment.Button.Padding</item>
-        <item name="android:paddingEnd">@dimen/DatePickerDialogFragment.Button.Padding</item>
-        <item name="android:textColor">@color/DatePickerDialogFragment.Button.TextColor</item>
+        <item name="android:paddingLeft">@dimen/PickerDialogFragment.Button.Padding</item>
+        <item name="android:paddingRight">@dimen/PickerDialogFragment.Button.Padding</item>
+        <item name="android:paddingStart">@dimen/PickerDialogFragment.Button.Padding</item>
+        <item name="android:paddingEnd">@dimen/PickerDialogFragment.Button.Padding</item>
+        <item name="android:textColor">@color/PickerDialogFragment.Button.TextColor</item>
     </style>
+
+    <!-- DatePickerDialogFragment -->
+    <!-- DatePickerDialogFragment 樣式 -->
+    <style name="DatePickerDialogFragment" parent="PickerDialogFragment" />
+    <!-- 標題樣式 -->
+    <style name="DatePickerDialogFragment.Title" parent="PickerDialogFragment.Title" />
+    <!-- 日期選取器樣式-->
+    <style name="DatePickerDialogFragment.DatePicker" parent="PickerDialogFragment.Picker" />
+    <!-- 按鈕樣式 -->
+    <style name="DatePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
+
+    <!-- TimePickerDialogFragment -->
+    <!-- TimePickerDialogFragment 樣式 -->
+    <style name="TimePickerDialogFragment" parent="PickerDialogFragment" />
+    <!-- 標題樣式 -->
+    <style name="TimePickerDialogFragment.Title" parent="PickerDialogFragment.Title" />
+    <!-- 時間選取器樣式-->
+    <style name="TimePickerDialogFragment.TimePicker" parent="PickerDialogFragment.Picker" />
+    <!-- 按鈕樣式 -->
+    <style name="TimePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
+
+
+
+
+
 
 
 

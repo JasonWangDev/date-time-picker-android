@@ -52,7 +52,7 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
 
         datePicker = (DatePicker) view.findViewById(R.id.datePicker);
 
-        setPickerDividerColor(view.findViewById(R.id.datePicker), R.color.DatePickerDialogFragment_DatePicker_DividerColor);
+        setPickerDividerColor(datePicker, R.color.PickerDialogFragment_Picker_DividerColor);
         initDatePicker();
         initButton(view);
 
@@ -112,7 +112,7 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
 
     private void initCalendar() {
         calendar = Calendar.getInstance();
-        if (null != getArguments())
+        if (getArguments().containsKey(KEY_YEAR))
         {
             CalendarUtils.setYear(calendar, getArguments().getInt(KEY_YEAR));
             CalendarUtils.setMonth(calendar, getArguments().getInt(KEY_MONTH));

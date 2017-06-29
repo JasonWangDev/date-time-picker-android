@@ -27,13 +27,9 @@ public abstract class SuperDialogFragment extends DialogFragment {
 
     protected abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
-
     protected static final String KEY_YEAR = "Year";
     protected static final String KEY_MONTH = "Month";
     protected static final String KEY_DAY = "Day";
-
-    protected static final String KEY_HOUR = "Hour";
-    protected static final String KEY_MINUTE = "Minute";
 
     protected OnDateTimePickerDialogFragmentClickListener listener;
 

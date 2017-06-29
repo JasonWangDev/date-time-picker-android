@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- DatePickerDialogFragment -->
+    <!-- PickerDialogFragment -->
     <!-- 日期選取器 -->
     <!-- 左右外間距 -->
-    <dimen name="DatePickerDialogFragment.DatePicker.Margin">40dp</dimen>
+    <dimen name="PickerDialogFragment.Picker.Margin">30dp</dimen>
     <!-- 標題 -->
     <!-- 內間距 -->
-    <dimen name="DatePickerDialogFragment.Title.Padding">15dp</dimen>
+    <dimen name="PickerDialogFragment.Title.Padding">15dp</dimen>
     <!-- 文字大小 -->
-    <dimen name="DatePickerDialogFragment.Title.TextSize">18sp</dimen>
+    <dimen name="PickerDialogFragment.Title.TextSize">18sp</dimen>
     <!-- 按鈕 -->
     <!-- 左右內間距 -->
-    <dimen name="DatePickerDialogFragment.Button.Padding">20dp</dimen>
+    <dimen name="PickerDialogFragment.Button.Padding">20dp</dimen>
+
+
 
 
 
