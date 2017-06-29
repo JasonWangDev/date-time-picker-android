@@ -14,12 +14,4 @@
         <item name="android:layout_marginEnd">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
     </style>
 
-    <!-- 時間選取器樣式 -->
-    <style name="TimePickerDialogFragment.TimePicker" parent="DateTimePickerDialogFragment.Picker">
-        <item name="android:layout_marginLeft">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
-        <item name="android:layout_marginStart">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
-        <item name="android:layout_marginRight">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
-        <item name="android:layout_marginEnd">@dimen/DateTimePickerDialogFragment.TimePicker.Margin</item>
-    </style>
-
 </resources>

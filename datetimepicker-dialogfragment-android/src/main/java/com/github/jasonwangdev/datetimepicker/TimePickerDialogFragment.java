@@ -41,6 +41,7 @@ public class TimePickerDialogFragment extends SuperDialogFragment implements Vie
         return dialog;
     }
 
+
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialogfragment_timepicker, container, false);
@@ -53,6 +54,7 @@ public class TimePickerDialogFragment extends SuperDialogFragment implements Vie
 
         return view;
     }
+
 
     @Override
     public void onClick(View v) {

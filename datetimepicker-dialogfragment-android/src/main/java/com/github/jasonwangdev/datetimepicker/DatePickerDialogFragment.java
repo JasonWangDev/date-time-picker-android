@@ -1,5 +1,6 @@
 package com.github.jasonwangdev.datetimepicker;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -13,8 +14,13 @@ import java.util.Calendar;
  * Created by jason on 2017/6/29.
  */
 
-public class DatePickerDialogFragment extends SuperDialogFragment implements DatePicker.OnDateChangedListener,
-                                                                             View.OnClickListener {
+public class DatePickerDialogFragment extends SuperDialogFragment implements View.OnClickListener {
+
+    private static final String KEY_YEAR = "Year";
+    private static final String KEY_MONTH = "Month";
+    private static final String KEY_DAY = "Day";
+
+    private OnDateTimePickerDialogFragmentClickListener listener;
 
     private DatePicker datePicker;
 
@@ -27,9 +33,9 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
         Bundle bundle = new Bundle();
         if (null != calendar)
         {
-            bundle.putInt(KEY_YEAR, CalendarUtils.getYear(calendar));
-            bundle.putInt(KEY_MONTH, CalendarUtils.getMonth(calendar));
-            bundle.putInt(KEY_DAY, CalendarUtils.getDay(calendar));
+            bundle.putInt(KEY_YEAR, calendar.get(Calendar.YEAR));
+            bundle.putInt(KEY_MONTH, calendar.get(Calendar.MONTH));
+            bundle.putInt(KEY_DAY, calendar.get(Calendar.DAY_OF_MONTH));
         }
 
         DatePickerDialogFragment dialog = new DatePickerDialogFragment();
@@ -38,13 +44,6 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
         return dialog;
     }
 
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        initCalendar();
-
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,17 +60,12 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
 
 
     @Override
-    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-        updateCalendar(year, monthOfYear, dayOfMonth);
-    }
-
-    @Override
     public void onClick(View v) {
         int viewId = v.getId();
         if (viewId == R.id.btn_today)
         {
-            updateCalendar(Calendar.getInstance());
-            updateDatePicker();
+            Calendar currentCalendar = Calendar.getInstance();
+            setDatePicker(currentCalendar);
         }
         else if (viewId == R.id.btn_clear)
         {
@@ -82,25 +76,30 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
         }
         else if (viewId == R.id.btn_ok)
         {
+            Calendar datePickerCalendar = getCalendarFromDatePicker();
             if (null != listener)
-                listener.onDateTimeSet(calendar);
+                listener.onDateTimeSet(datePickerCalendar);
 
             dismiss();
         }
     }
 
 
-    private void initDatePicker() {
-        datePicker.init(CalendarUtils.getYear(calendar),
-                        CalendarUtils.getMonth(calendar),
-                        CalendarUtils.getDay(calendar),
-                        this);
+    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
+        this.listener = listener;
     }
 
-    private void updateDatePicker() {
-        datePicker.updateDate(CalendarUtils.getYear(calendar),
-                              CalendarUtils.getMonth(calendar),
-                              CalendarUtils.getDay(calendar));
+
+    private void initDatePicker() {
+        Calendar calendar = Calendar.getInstance();
+        if (getArguments().containsKey(KEY_YEAR))
+        {
+            calendar.set(Calendar.YEAR, getArguments().getInt(KEY_YEAR));
+            calendar.set(Calendar.MONTH, getArguments().getInt(KEY_MONTH));
+            calendar.set(Calendar.DAY_OF_MONTH, getArguments().getInt(KEY_DAY));
+        }
+
+        setDatePicker(calendar);
     }
 
     private void initButton(View view) {
@@ -110,26 +109,24 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Dat
     }
 
 
-    private void initCalendar() {
-        calendar = Calendar.getInstance();
-        if (getArguments().containsKey(KEY_YEAR))
-        {
-            CalendarUtils.setYear(calendar, getArguments().getInt(KEY_YEAR));
-            CalendarUtils.setMonth(calendar, getArguments().getInt(KEY_MONTH));
-            CalendarUtils.setDay(calendar, getArguments().getInt(KEY_DAY));
-        }
+    private void setDatePicker(Calendar calendar) {
+        datePicker.updateDate(calendar.get(Calendar.YEAR),
+                              calendar.get(Calendar.MONTH),
+                              calendar.get(Calendar.DAY_OF_MONTH));
     }
 
-    private void updateCalendar(Calendar calendar) {
-        updateCalendar(CalendarUtils.getYear(calendar),
-                       CalendarUtils.getMonth(calendar),
-                       CalendarUtils.getDay(calendar));
-    }
 
-    private void updateCalendar(int year, int monthOfYear, int dayOfMonth) {
-        CalendarUtils.setYear(calendar, year);
-        CalendarUtils.setMonth(calendar, monthOfYear);
-        CalendarUtils.setDay(calendar, dayOfMonth);
+    private Calendar getCalendarFromDatePicker() {
+        Calendar calendar = Calendar.getInstance();
+        int year = datePicker.getYear();
+        int month = datePicker.getMonth();
+        int day = datePicker.getDayOfMonth();
+
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+
+        return calendar;
     }
 
 }

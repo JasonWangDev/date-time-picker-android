@@ -27,14 +27,6 @@ public abstract class SuperDialogFragment extends DialogFragment {
 
     protected abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
-    protected static final String KEY_YEAR = "Year";
-    protected static final String KEY_MONTH = "Month";
-    protected static final String KEY_DAY = "Day";
-
-    protected OnDateTimePickerDialogFragmentClickListener listener;
-
-    protected Calendar calendar;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,11 +46,6 @@ public abstract class SuperDialogFragment extends DialogFragment {
         setDialogSize();
 
         super.onResume();
-    }
-
-
-    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
-        this.listener = listener;
     }
 
 
@@ -121,38 +108,6 @@ public abstract class SuperDialogFragment extends DialogFragment {
         }
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
     }
-
-
-//    private Bundle createBundle(Calendar calendar, boolean isTime, boolean isDate)
-//    {
-//        Bundle bundle = new Bundle();
-//
-//        if (null != calendar)
-//        {
-//            if (isTime)
-//            {
-//                bundle.putInt(KEY_HOUR, CalendarUtils.getHour(calendar));
-//                bundle.putInt(KEY_MINUTE, CalendarUtils.getMinute(calendar));
-//            }
-//            else if (isDate)
-//            {
-//                bundle.putInt(KEY_YEAR, CalendarUtils.getYear(calendar));
-//                bundle.putInt(KEY_MONTH, CalendarUtils.getMonth(calendar));
-//                bundle.putInt(KEY_DAY, CalendarUtils.getDay(calendar));
-//            }
-//            else if (isTime && isDate)
-//            {
-//                bundle.putInt(KEY_HOUR, CalendarUtils.getHour(calendar));
-//                bundle.putInt(KEY_MINUTE, CalendarUtils.getMinute(calendar));
-//
-//                bundle.putInt(KEY_YEAR, CalendarUtils.getYear(calendar));
-//                bundle.putInt(KEY_MONTH, CalendarUtils.getMonth(calendar));
-//                bundle.putInt(KEY_DAY, CalendarUtils.getDay(calendar));
-//            }
-//        }
-//
-//        return bundle;
-//    }
 
 
     private void setPickerDividerColor(NumberPicker picker, int colorRes) {
