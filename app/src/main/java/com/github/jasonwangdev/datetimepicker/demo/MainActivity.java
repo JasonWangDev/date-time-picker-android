@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.github.jasonwangdev.datetimepicker.DatePickerDialogFragment;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -12,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DatePickerDialogFragment dialogFragment = DatePickerDialogFragment.getInstance();
+        DatePickerDialogFragment dialogFragment = DatePickerDialogFragment.getInstance(Calendar.getInstance());
         dialogFragment.show(getSupportFragmentManager(), "SEGEG");
     }
 }

@@ -12,9 +12,9 @@
     <!-- 按鈕 -->
     <!-- 文字顏色 -->
     <color name="DatePickerDialogFragment.Button.TextColor">@color/DatePickerDialogFragment.Title.BackgroundColor</color>
-
-
-
+    <!-- 日期選取器 -->
+    <!-- 分割線顏色 -->
+    <color name="DatePickerDialogFragment.DatePicker.DividerColor">@color/DatePickerDialogFragment.Title.BackgroundColor</color>
 
 
 

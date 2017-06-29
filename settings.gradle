@@ -1,1 +1,1 @@
-include ':app', ':date-time-picker-android'
+include ':app', ':datetimepicker-dialogfragment-android'
