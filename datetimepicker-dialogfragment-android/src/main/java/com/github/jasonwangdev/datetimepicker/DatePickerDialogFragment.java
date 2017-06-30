@@ -74,7 +74,7 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Vie
         }
         else if (viewId == R.id.btn_ok)
         {
-            Calendar datePickerCalendar = getCalendarFromDatePicker();
+            Calendar datePickerCalendar = getCalendar(datePicker);
             if (null != listener)
                 listener.onDateTimeSet(datePickerCalendar);
 
@@ -111,20 +111,6 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Vie
         datePicker.updateDate(calendar.get(Calendar.YEAR),
                               calendar.get(Calendar.MONTH),
                               calendar.get(Calendar.DAY_OF_MONTH));
-    }
-
-
-    private Calendar getCalendarFromDatePicker() {
-        Calendar calendar = Calendar.getInstance();
-        int year = datePicker.getYear();
-        int month = datePicker.getMonth();
-        int day = datePicker.getDayOfMonth();
-
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-
-        return calendar;
     }
 
 }

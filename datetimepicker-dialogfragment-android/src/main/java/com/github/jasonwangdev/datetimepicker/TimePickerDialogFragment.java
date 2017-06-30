@@ -73,7 +73,7 @@ public class TimePickerDialogFragment extends SuperDialogFragment implements Vie
         }
         else if (viewId == R.id.btn_ok)
         {
-            Calendar timePickerCalendar = getCalendarFromTimePicker();
+            Calendar timePickerCalendar = getCalendar(timePicker);
             if (null != listener)
                 listener.onDateTimeSet(timePickerCalendar);
 
@@ -116,29 +116,6 @@ public class TimePickerDialogFragment extends SuperDialogFragment implements Vie
             timePicker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
             timePicker.setCurrentMinute(calendar.get(Calendar.MINUTE));
         }
-    }
-
-
-    private Calendar getCalendarFromTimePicker() {
-        Calendar calendar = Calendar.getInstance();
-        int hour;
-        int minute;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            hour = timePicker.getHour();
-            minute = timePicker.getMinute();
-        }
-        else
-        {
-            hour = timePicker.getCurrentHour();
-            minute = timePicker.getCurrentMinute();
-        }
-
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
-        calendar.set(Calendar.MINUTE, minute);
-
-        return calendar;
     }
 
 }
