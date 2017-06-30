@@ -2,7 +2,9 @@ package com.github.jasonwangdev.datetimepicker;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -44,6 +46,71 @@ public abstract class SuperDialogFragment extends DialogFragment {
         setDialogSize();
 
         super.onResume();
+    }
+
+
+    protected Calendar getCalendar(DatePicker datePicker, TimePicker timePicker)
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        if (null != datePicker && null != timePicker)
+        {
+            Calendar date = getCalendar(datePicker);
+            Calendar time = getCalendar(timePicker);
+
+            calendar.set(Calendar.YEAR, date.get(Calendar.YEAR));
+            calendar.set(Calendar.MONTH, date.get(Calendar.MONTH));
+            calendar.set(Calendar.DAY_OF_MONTH, date.get(Calendar.DAY_OF_MONTH));
+            calendar.set(Calendar.HOUR_OF_DAY, time.get(Calendar.HOUR_OF_DAY));
+            calendar.set(Calendar.MINUTE, time.get(Calendar.MINUTE));
+        }
+
+        return calendar;
+    }
+
+    protected Calendar getCalendar(DatePicker datePicker)
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        if (null != datePicker)
+        {
+            int year = datePicker.getYear();
+            int month = datePicker.getMonth();
+            int day = datePicker.getDayOfMonth();
+
+            calendar.set(Calendar.YEAR, year);
+            calendar.set(Calendar.MONTH, month);
+            calendar.set(Calendar.DAY_OF_MONTH, day);
+        }
+
+        return calendar;
+    }
+
+    protected Calendar getCalendar(TimePicker timePicker)
+    {
+        Calendar calendar = Calendar.getInstance();
+
+        if (null != timePicker)
+        {
+            int hour;
+            int minute;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            {
+                hour = timePicker.getHour();
+                minute = timePicker.getMinute();
+            }
+            else
+            {
+                hour = timePicker.getCurrentHour();
+                minute = timePicker.getCurrentMinute();
+            }
+
+            calendar.set(Calendar.HOUR_OF_DAY, hour);
+            calendar.set(Calendar.MINUTE, minute);
+        }
+
+        return calendar;
     }
 
 
@@ -110,8 +177,8 @@ public abstract class SuperDialogFragment extends DialogFragment {
             ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
             Configuration configuration = getResources().getConfiguration();
             if ((configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_LARGE &&
-                    (configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_XLARGE &&
-                    configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+                (configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_XLARGE &&
+                configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
             {
                 params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
                 params.height = ViewGroup.LayoutParams.MATCH_PARENT;

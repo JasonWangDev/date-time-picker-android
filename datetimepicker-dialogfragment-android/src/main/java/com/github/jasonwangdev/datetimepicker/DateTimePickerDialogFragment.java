@@ -2,6 +2,8 @@ package com.github.jasonwangdev.datetimepicker;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,9 +89,9 @@ public class DateTimePickerDialogFragment extends SuperDialogFragment implements
         }
         else if (viewId == R.id.btn_ok)
         {
-            Calendar dateTimePickerCalendar = getCalendarFromDateTimePicker();
+            Calendar calendar = getCalendar(datePicker, timePicker);
             if (null != listener)
-                listener.onDateTimeSet(dateTimePickerCalendar);
+                listener.onDateTimeSet(calendar);
 
             dismiss();
         }
