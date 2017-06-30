@@ -85,26 +85,17 @@ public abstract class SuperDialogFragment extends DialogFragment {
     private void setDialogSize() {
         ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
         Configuration configuration = getResources().getConfiguration();
-        switch ((configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK))
+        if ((configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_LARGE &&
+            (configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_XLARGE &&
+            configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
-            case Configuration.SCREENLAYOUT_SIZE_LARGE:
-            case Configuration.SCREENLAYOUT_SIZE_XLARGE:
-                params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                break;
-
-            default:
-                if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
-                {
-                    params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                    params.height = ViewGroup.LayoutParams.MATCH_PARENT;
-                }
-                else
-                {
-                    params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-                    params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                }
-                break;
+            params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            params.height = ViewGroup.LayoutParams.MATCH_PARENT;
+        }
+        else
+        {
+            params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         }
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
     }

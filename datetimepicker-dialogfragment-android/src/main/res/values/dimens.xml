@@ -4,7 +4,7 @@
     <!-- PickerDialogFragment -->
     <!-- 選取器 -->
     <!-- 左右外間距 -->
-    <dimen name="PickerDialogFragment.Picker.Margin">30dp</dimen>
+    <dimen name="PickerDialogFragment.Picker.Margin">20dp</dimen>
     <!-- 標題 -->
     <!-- 內間距 -->
     <dimen name="PickerDialogFragment.Title.Padding">15dp</dimen>
