@@ -18,8 +18,6 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Vie
     private static final String KEY_MONTH = "Month";
     private static final String KEY_DAY = "Day";
 
-    private OnDateTimePickerDialogFragmentClickListener listener;
-
     private DatePicker datePicker;
 
 
@@ -80,11 +78,6 @@ public class DatePickerDialogFragment extends SuperDialogFragment implements Vie
 
             dismiss();
         }
-    }
-
-
-    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
-        this.listener = listener;
     }
 
 

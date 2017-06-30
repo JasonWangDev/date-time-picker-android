@@ -24,8 +24,6 @@ public class DateTimePickerDialogFragment extends SuperDialogFragment implements
     private static final String KEY_HOUR = "Hour";
     private static final String KEY_MINUTE = "minute";
 
-    private OnDateTimePickerDialogFragmentClickListener listener;
-
     private DatePicker datePicker;
     private TimePicker timePicker;
 
@@ -98,11 +96,6 @@ public class DateTimePickerDialogFragment extends SuperDialogFragment implements
     }
 
 
-    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
-        this.listener = listener;
-    }
-
-
     private void initDatePicker() {
         Calendar calendar = Calendar.getInstance();
         if (getArguments().containsKey(KEY_YEAR))
@@ -150,35 +143,6 @@ public class DateTimePickerDialogFragment extends SuperDialogFragment implements
             timePicker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
             timePicker.setCurrentMinute(calendar.get(Calendar.MINUTE));
         }
-    }
-
-
-    private Calendar getCalendarFromDateTimePicker() {
-        Calendar calendar = Calendar.getInstance();
-        int year = datePicker.getYear();
-        int month = datePicker.getMonth();
-        int day = datePicker.getDayOfMonth();
-        int hour;
-        int minute;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-        {
-            hour = timePicker.getHour();
-            minute = timePicker.getMinute();
-        }
-        else
-        {
-            hour = timePicker.getCurrentHour();
-            minute = timePicker.getCurrentMinute();
-        }
-
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
-        calendar.set(Calendar.HOUR_OF_DAY, hour);
-        calendar.set(Calendar.MINUTE, minute);
-
-        return calendar;
     }
 
 }

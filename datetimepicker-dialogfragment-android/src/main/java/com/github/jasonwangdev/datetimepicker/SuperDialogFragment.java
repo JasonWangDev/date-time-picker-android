@@ -27,10 +27,12 @@ import java.util.Calendar;
 
 public abstract class SuperDialogFragment extends DialogFragment {
 
+    protected abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+
+
     private static final String TAG = SuperDialogFragment.class.getName();
 
-
-    protected abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+    protected OnDateTimePickerDialogFragmentClickListener listener;
 
 
     @Nullable
@@ -46,6 +48,11 @@ public abstract class SuperDialogFragment extends DialogFragment {
         setDialogSize();
 
         super.onResume();
+    }
+
+
+    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
+        this.listener = listener;
     }
 
 

@@ -18,8 +18,6 @@ public class TimePickerDialogFragment extends SuperDialogFragment implements Vie
     private static final String KEY_HOUR = "Hour";
     private static final String KEY_MINUTE = "Minute";
 
-    private OnDateTimePickerDialogFragmentClickListener listener;
-
     private TimePicker timePicker;
 
 
@@ -79,11 +77,6 @@ public class TimePickerDialogFragment extends SuperDialogFragment implements Vie
 
             dismiss();
         }
-    }
-
-
-    public void setOnDateTimePickerDialogFragmentClickListener(OnDateTimePickerDialogFragmentClickListener listener) {
-        this.listener = listener;
     }
 
 
