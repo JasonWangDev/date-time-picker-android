@@ -25,13 +25,11 @@ import java.util.Calendar;
 
 public abstract class SuperDialogFragment extends DialogFragment {
 
+    private static final String TAG = SuperDialogFragment.class.getName();
+
+
     protected abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Nullable
     @Override
@@ -49,6 +47,15 @@ public abstract class SuperDialogFragment extends DialogFragment {
     }
 
 
+    /**
+     * 設定日期 & 時間 Spinner Mode 選取器的分割線
+     *
+     * 利用系統資源 Id 抓取對應 DatePicker 或 TimePicker 中所有的 NumberPicker 元件，並進行 NumberPicker 分割線顏
+     * 色的設定
+     *
+     * @param picker 傳入日期或時間選取器元件
+     * @param colorRes 傳入顏色資源 Id
+     */
     protected void setPickerDividerColor(View picker, int colorRes) {
         if (null == picker)
             return;
@@ -78,29 +85,58 @@ public abstract class SuperDialogFragment extends DialogFragment {
     }
 
 
+    /**
+     * 設定 DialogFragment 不顯示標題列
+     */
     private void setDialogNoTitle() {
-        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        try
+        {
+            getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        }
+        catch (Exception e)
+        {
+            Log.e(TAG, e.getMessage());
+        }
     }
 
+    /**
+     * 設定 DialogFragment 長寬
+     *
+     * 根據不同尺寸的螢幕大小以及螢幕的方向動態調整 DialogFragment 需要的大小
+     */
     private void setDialogSize() {
-        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
-        Configuration configuration = getResources().getConfiguration();
-        if ((configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_LARGE &&
-            (configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_XLARGE &&
-            configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        try
         {
-            params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-            params.height = ViewGroup.LayoutParams.MATCH_PARENT;
+            ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+            Configuration configuration = getResources().getConfiguration();
+            if ((configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_LARGE &&
+                    (configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) != Configuration.SCREENLAYOUT_SIZE_XLARGE &&
+                    configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+            {
+                params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                params.height = ViewGroup.LayoutParams.MATCH_PARENT;
+            }
+            else
+            {
+                params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+            }
+            getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
         }
-        else
+        catch (Exception e)
         {
-            params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+            Log.e(TAG, e.getMessage());
         }
-        getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
     }
 
-
+    /**
+     * 設定 NumberPicker 元件的分割線
+     *
+     * 利用反射機制抓取對應 NumberPicker 元件中的分割線物件進行顏色的改變設定
+     *
+     * @param picker 傳入 NumberPicker 元件
+     * @param colorRes 傳入要設定的顏色資源 Id
+     */
     private void setPickerDividerColor(NumberPicker picker, int colorRes) {
         if (picker == null)
             return;
