@@ -2,11 +2,9 @@ package com.github.jasonwangdev.datetimepicker;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -35,9 +33,8 @@ public abstract class SuperDialogFragment extends DialogFragment {
     protected OnDateTimePickerDialogFragmentClickListener listener;
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setDialogNoTitle();
 
         return createView(inflater, container, savedInstanceState);
@@ -56,8 +53,7 @@ public abstract class SuperDialogFragment extends DialogFragment {
     }
 
 
-    protected Calendar getCalendar(DatePicker datePicker, TimePicker timePicker)
-    {
+    protected Calendar getCalendar(DatePicker datePicker, TimePicker timePicker) {
         Calendar calendar = Calendar.getInstance();
 
         if (null != datePicker && null != timePicker)
@@ -75,8 +71,7 @@ public abstract class SuperDialogFragment extends DialogFragment {
         return calendar;
     }
 
-    protected Calendar getCalendar(DatePicker datePicker)
-    {
+    protected Calendar getCalendar(DatePicker datePicker) {
         Calendar calendar = Calendar.getInstance();
 
         if (null != datePicker)
@@ -93,8 +88,7 @@ public abstract class SuperDialogFragment extends DialogFragment {
         return calendar;
     }
 
-    protected Calendar getCalendar(TimePicker timePicker)
-    {
+    protected Calendar getCalendar(TimePicker timePicker) {
         Calendar calendar = Calendar.getInstance();
 
         if (null != timePicker)
@@ -122,12 +116,12 @@ public abstract class SuperDialogFragment extends DialogFragment {
 
 
     /**
-     * 設定日期 & 時間 Spinner Mode 選取器的分割線
-     *
+     * 設定日期或時間 Spinner Mode 選取器的分割線
+     * <p>
      * 利用系統資源 Id 抓取對應 DatePicker 或 TimePicker 中所有的 NumberPicker 元件，並進行 NumberPicker 分割線顏
      * 色的設定
      *
-     * @param picker 傳入日期或時間選取器元件
+     * @param picker   傳入日期或時間選取器元件
      * @param colorRes 傳入顏色資源 Id
      */
     protected void setPickerDividerColor(View picker, int colorRes) {
@@ -139,14 +133,14 @@ public abstract class SuperDialogFragment extends DialogFragment {
         if (picker instanceof DatePicker)
         {
             ids = new int[]{system.getIdentifier("day", "id", "android"),
-                            system.getIdentifier("month", "id", "android"),
-                            system.getIdentifier("year", "id", "android")};
+                    system.getIdentifier("month", "id", "android"),
+                    system.getIdentifier("year", "id", "android")};
         }
         else if (picker instanceof TimePicker)
         {
             ids = new int[]{system.getIdentifier("hour", "id", "android"),
-                            system.getIdentifier("minute", "id", "android"),
-                            system.getIdentifier("amPm", "id", "android")};
+                    system.getIdentifier("minute", "id", "android"),
+                    system.getIdentifier("amPm", "id", "android")};
         }
         else
             return;
@@ -175,7 +169,7 @@ public abstract class SuperDialogFragment extends DialogFragment {
 
     /**
      * 設定 DialogFragment 長寬
-     *
+     * <p>
      * 根據不同尺寸的螢幕大小以及螢幕的方向動態調整 DialogFragment 需要的大小
      */
     private void setDialogSize() {
@@ -205,10 +199,10 @@ public abstract class SuperDialogFragment extends DialogFragment {
 
     /**
      * 設定 NumberPicker 元件的分割線
-     *
+     * <p>
      * 利用反射機制抓取對應 NumberPicker 元件中的分割線物件進行顏色的改變設定
      *
-     * @param picker 傳入 NumberPicker 元件
+     * @param picker   傳入 NumberPicker 元件
      * @param colorRes 傳入要設定的顏色資源 Id
      */
     private void setPickerDividerColor(NumberPicker picker, int colorRes) {
