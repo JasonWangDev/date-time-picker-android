@@ -9,6 +9,9 @@
     <color name="PickerDialogFragment.Title.TextColor">#FFF</color>
     <!-- 背景顏色 -->
     <color name="PickerDialogFragment.Title.BackgroundColor">#8AC64A</color>
+    <!-- 按鈕分割線 -->
+    <!-- 顏色 -->
+    <color name="PickerDialogFragment.ButtonDivider.Color">#00000000</color>
     <!-- 按鈕 -->
     <!-- 文字顏色 -->
     <color name="PickerDialogFragment.Button.TextColor">@color/PickerDialogFragment.Title.BackgroundColor</color>

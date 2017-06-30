@@ -28,6 +28,12 @@
         <item name="android:layout_marginEnd">@dimen/PickerDialogFragment.Picker.Margin</item>
         <item name="android:calendarViewShown">false</item>
     </style>
+    <!-- 按鈕分割線樣式 -->
+    <style name="PickerDialogFragment.ButtonDivider">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/PickerDialogFragment.ButtonDivider.Height</item>
+        <item name="android:background">@color/PickerDialogFragment.ButtonDivider.Color</item>
+    </style>
     <!-- 按鈕樣式 -->
     <style name="PickerDialogFragment.Button">
         <item name="android:layout_width">wrap_content</item>
@@ -48,6 +54,8 @@
     <style name="DatePickerDialogFragment.Title" parent="PickerDialogFragment.Title" />
     <!-- 日期選取器樣式-->
     <style name="DatePickerDialogFragment.DatePicker" parent="PickerDialogFragment.Picker" />
+    <!-- 按鈕分割線樣式 -->
+    <style name="DatePickerDialogFragment.ButtonDivider" parent="PickerDialogFragment.ButtonDivider" />
     <!-- 按鈕樣式 -->
     <style name="DatePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
 
@@ -58,6 +66,8 @@
     <style name="TimePickerDialogFragment.Title" parent="PickerDialogFragment.Title" />
     <!-- 時間選取器樣式-->
     <style name="TimePickerDialogFragment.TimePicker" parent="PickerDialogFragment.Picker" />
+    <!-- 按鈕分割線樣式 -->
+    <style name="TimePickerDialogFragment.ButtonDivider" parent="PickerDialogFragment.ButtonDivider" />
     <!-- 按鈕樣式 -->
     <style name="TimePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
 
@@ -67,10 +77,11 @@
     <!-- 標題樣式 -->
     <style name="DateTimePickerDialogFragment.Title" parent="PickerDialogFragment.Title" />
     <!-- 日期選取器樣式-->
-    <style name="DateTimePickerDialogFragment.DatePicker" parent="PickerDialogFragment.Picker">
-    </style>
+    <style name="DateTimePickerDialogFragment.DatePicker" parent="PickerDialogFragment.Picker" />
     <!-- 時間選取器樣式-->
     <style name="DateTimePickerDialogFragment.TimePicker" parent="PickerDialogFragment.Picker" />
+    <!-- 按鈕分割線樣式 -->
+    <style name="DateTimePickerDialogFragment.ButtonDivider" parent="PickerDialogFragment.ButtonDivider" />
     <!-- 按鈕樣式 -->
     <style name="DateTimePickerDialogFragment.Button" parent="PickerDialogFragment.Button" />
 

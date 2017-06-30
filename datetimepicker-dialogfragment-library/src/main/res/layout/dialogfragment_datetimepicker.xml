@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/DatePickerDialogFragment">
+    android:id="@+id/layout"
+    style="@style/DateTimePickerDialogFragment">
 
     <DatePicker
         android:id="@+id/datePicker"
-        style="@style/DatePickerDialogFragment.DatePicker"
+        style="@style/DateTimePickerDialogFragment.DatePicker"
         android:datePickerMode="spinner"
-        app:layout_constraintBottom_toTopOf="@+id/btn_today"
+        app:layout_constraintBottom_toTopOf="@+id/timePicker"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        tools:ignore="UnusedAttribute" />
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        style="@style/DateTimePickerDialogFragment.TimePicker"
+        android:timePickerMode="spinner"
+        app:layout_constraintBottom_toTopOf="@+id/btn_today"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/datePicker" />
 
     <TextView
         android:id="@+id/tv_title"
-        style="@style/DatePickerDialogFragment.Title"
-        android:text="@string/PickerDialogFragment.Title.SelectDate"
+        style="@style/DateTimePickerDialogFragment.Title"
+        android:text="@string/PickerDialogFragment.Title.SelectDateTime"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        style="@style/DatePickerDialogFragment.ButtonDivider"
+        app:layout_constraintBottom_toTopOf="@id/btn_today"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <Button
         android:id="@+id/btn_today"
-        style="@style/DatePickerDialogFragment.Button"
+        style="@style/DateTimePickerDialogFragment.Button"
         android:text="@string/PickerDialogFragment.Button.Today"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/btn_clear"
-        style="@style/DatePickerDialogFragment.Button"
+        style="@style/DateTimePickerDialogFragment.Button"
         android:text="@string/PickerDialogFragment.Button.Clear"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/btn_ok" />
 
     <Button
         android:id="@+id/btn_ok"
-        style="@style/DatePickerDialogFragment.Button"
+        style="@style/DateTimePickerDialogFragment.Button"
         android:text="@string/PickerDialogFragment.Button.Ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

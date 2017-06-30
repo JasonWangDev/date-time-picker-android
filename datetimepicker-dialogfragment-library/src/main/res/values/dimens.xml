@@ -10,6 +10,9 @@
     <dimen name="PickerDialogFragment.Title.Padding">15dp</dimen>
     <!-- 文字大小 -->
     <dimen name="PickerDialogFragment.Title.TextSize">18sp</dimen>
+    <!-- 按鈕分割線 -->
+    <!-- 高度 -->
+    <dimen name="PickerDialogFragment.ButtonDivider.Height">1dp</dimen>
     <!-- 按鈕 -->
     <!-- 左右內間距 -->
     <dimen name="PickerDialogFragment.Button.Padding">20dp</dimen>
